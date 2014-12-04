@@ -1,0 +1,36 @@
+/*
+The Keccak sponge function, designed by Guido Bertoni, Joan Daemen,
+MichaÃ«l Peeters and Gilles Van Assche. For more information, feedback or
+questions, please refer to our website: http://keccak.noekeon.org/
+
+Implementation by Ronny Van Keer,
+hereby denoted as "the implementer".
+
+To the extent possible under law, the implementer has waived all copyright
+and related or neighboring rights to the source code in this file.
+http://creativecommons.org/publicdomain/zero/1.0/
+*/
+
+#ifndef KECCAK512_DATA_H
+#define KECCAK512_DATA_H
+
+// ** Thread-safe implementation
+
+// ** Keccak hashing
+// ** 512bit hash
+
+typedef uint8_t  BYTE;
+typedef uint16_t WORD;
+typedef uint32_t DWORD;
+typedef uint64_t QWORD;
+
+#define cKeccakB    1600
+#define cKeccakR    576
+#define cKeccakFixedOutputLengthInBytes 64
+
+typedef struct {
+	BYTE	state[cKeccakB / 8];
+	int             bytesInQueue;
+} KECCAK512_DATA;
+
+#endif
